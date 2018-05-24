@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cly.dao.YellowManMapper">
+
+  <resultMap id="BaseResultMap" type="com.cly.model.YellowMan">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userpass" jdbcType="VARCHAR" property="userpass" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="iskeyuser" jdbcType="INTEGER" property="iskeyuser" />
+    <result column="keycode" jdbcType="VARCHAR" property="keycode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, userpass, createdate, iskeyuser, keycode
+  </sql>
+  <select id="selectByName" resultType="com.cly.model.YellowMan">
+    select
+    <include refid="Base_Column_List" />
+    from sysuser
+    where  username = #{username} and userpass=#{password}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sysuser
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cly.model.YellowMan">
+    insert into sysuser (id, username, userpass, 
+      createdate, iskeyuser, keycode
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpass,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{iskeyuser,jdbcType=INTEGER}, #{keycode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cly.model.YellowMan">
+    insert into sysuser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="userpass != null">
+        userpass,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="iskeyuser != null">
+        iskeyuser,
+      </if>
+      <if test="keycode != null">
+        keycode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpass != null">
+        #{userpass,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iskeyuser != null">
+        #{iskeyuser,jdbcType=INTEGER},
+      </if>
+      <if test="keycode != null">
+        #{keycode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cly.model.YellowMan">
+    update sysuser
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpass != null">
+        userpass = #{userpass,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        createdate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iskeyuser != null">
+        iskeyuser = #{iskeyuser,jdbcType=INTEGER},
+      </if>
+      <if test="keycode != null">
+        keycode = #{keycode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cly.model.YellowMan">
+    update sysuser
+    set username = #{username,jdbcType=VARCHAR},
+      userpass = #{userpass,jdbcType=VARCHAR},
+      createdate = #{createdate,jdbcType=TIMESTAMP},
+      iskeyuser = #{iskeyuser,jdbcType=INTEGER},
+      keycode = #{keycode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>
