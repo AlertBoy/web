@@ -4,6 +4,8 @@ import com.cly.model.Yellow;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 public interface YellowMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -11,7 +13,7 @@ public interface YellowMapper {
 
     int insertSelective(Yellow record);
 
-    Yellow selectByName(@Param("username")String name,@Param("password")String password);
+    List<Yellow> selectByName(@Param("title")String title, @Param("programes")String program);
 
     int updateByPrimaryKeySelective(Yellow record);
 

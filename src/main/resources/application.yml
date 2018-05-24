@@ -38,6 +38,7 @@ mybatis:
   type-aliases-package: com.cly
 
 
+
 #pagehelper
 pagehelper:
     helperDialect: mysql

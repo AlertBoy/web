@@ -4,10 +4,11 @@ import com.cly.model.YellowMan;
 import com.cly.service.user.YellowManService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author ：Chen lingyun
@@ -19,18 +20,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class YellowManCotroller {
     @Autowired
     YellowManService yellowManService;
-
+    @Autowired
+    protected  HttpServletRequest request;
     @ResponseBody
     @RequestMapping("/login")
-    public Object Login(@RequestParam(required = true) String name, @RequestParam(required = true) String password) {
+    public Object Login(@RequestParam String name, @RequestParam String password) {
+        if (name==null||password==null)return "用户GG";
         YellowMan yellowMan = yellowManService.Login(name, password);
         if (yellowMan == null) {
             return "用户GG";
         } else {
+            request.getSession().setAttribute("loginUser",yellowMan);
           return yellowMan;
         }
     }
-    @PostMapping("/error")
+    @RequestMapping("/error")
     public Object Error() {
        return 404;
     }
