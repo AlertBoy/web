@@ -21,14 +21,17 @@ public class YellowManCotroller {
     YellowManService yellowManService;
 
     @ResponseBody
-    @PostMapping("/add")
+    @RequestMapping("/login")
     public Object Login(@RequestParam(required = true) String name, @RequestParam(required = true) String password) {
         YellowMan yellowMan = yellowManService.Login(name, password);
         if (yellowMan == null) {
             return "用户GG";
-
         } else {
           return yellowMan;
         }
+    }
+    @PostMapping("/error")
+    public Object Error() {
+       return 404;
     }
 }
