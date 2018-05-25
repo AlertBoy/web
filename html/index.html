@@ -8,21 +8,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 
 <head>
-	<title>Collective Forms Widget Flat Responsive Widget Template :: w3layouts</title>
+	<title>每日新鲜</title>
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Collective Forms Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+	<link rel="shortcut icon" href="http://demo.sc.chinaz.com/Files/pic/iconsico/6031/check12.ico" >
 	<script type="application/x-javascript">
 		$(document).ready(function(){
-			var name=$("#txtName").text;
-			var pas=$("#txtPas").text;
+			
  		 $("#loginBtn").click(function(){
+		
+			var name=$("#txtName").val();
+			var pas=$("#txtPas").val();
 			console.log("http://localhost:8080/user/login?name="+name+"&password="+pas);  
-  	      	htmlobj=$.ajax({url:"http://localhost:8080/user/login?name="+name+"&password="+pas,async:false});
- 			alert(htmlobj.responseText);
+  	      	htmlobj=$.ajax({url:"http://localhost:8080/user/login?name="+name+"&password="+pas,async:false, xhrFields: {   withCredentials: true
+    },
+    crossDomain: true});
+				if (htmlobj.responseText.toString()=="用户GG") {
+					
+				}
+			else{
+				var JsonObjs = eval("(" + htmlobj.responseText + ")");      //或者：var JsonObjs = $.parseJSON(data); 
+				//alert(JsonObjs.username);
+				window.location.href='html/index.html';
+					
+			}
+			
  	 });
 		}); 
 	addEventListener("load", function() { 
@@ -35,10 +49,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<div class="main">
-		<h1>进入我的世界</h1>
+		<h1>嘿嘿嘿</h1>
 		<div class="wthree_top_forms">
-
-
 			<div class="agile-info_w3ls agile-info_w3ls_sub hvr-buzz-out">
 				<h3>登陆</h3>
 				<div class="agile-info_w3ls_grid second">
@@ -59,10 +71,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="clear"> </div>
 					</div>
-					<form  method="GET">
-						<input type="submit" id="loginBtn" value="登陆">
-					</form>
-					<h4>其他账号登陆</h4>
+
+					<input type="submit" id="loginBtn" value="登陆">
 					<div class="social_icons agileinfo">
 						<section class="social">
 							<a href="" class="icon fb">
