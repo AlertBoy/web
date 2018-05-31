@@ -1,6 +1,7 @@
 package com.cly.service.user;
 
 import com.cly.model.Yellow;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -11,5 +12,5 @@ import java.util.List;
  **/
 public interface YellowService {
     List<Yellow> selectByName(String title, String program);
-
+    PageInfo<Yellow> selectByName(String title, String program, int pageNum, int pageSize);
 }

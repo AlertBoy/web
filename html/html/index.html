@@ -1,4 +1,5 @@
-<!--Author: W3layouts
+<!--
+Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
@@ -7,24 +8,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 
 <head>
-	<title>每日一盖片</title>
-	<script src="js/jquery.min.js"></script>
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- Custom Theme files -->
+	<title>Just Play Widget Flat Responsive Widget | Home :: w3layouts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Movie review  Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"
-	/>
+	<meta name="keywords" content="Just Play Widget Responsive web template,Flat Video Player,Flat Audio Player Widget,Flat Login forms,Flat Pricing Tables,Flat Charts,Flat buttons, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
 	<link rel="shortcut icon" href="http://demo.sc.chinaz.com/Files/pic/iconsico/6031/check12.ico">
-	<!--google fonts-->
-	<!--video -->
-	<link href="css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<script src="js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
-		function crossDomainRequest() {
+		function crossDomainRequest(keyword) {
 			var htmlobj = $.ajax({
-				url: "http://localhost:8080/yellow/search?title=%E5%AD%A6%E7%94%9F", async: false, xhrFields: {
+				url: "http://localhost:8080/yellow/searchBy?title="+keyword, async: false, xhrFields: {
 					withCredentials: true
 				},
 				// 允许跨域
@@ -33,33 +30,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			return htmlobj;
 
 		}
-		//<![CDATA[
 		$(document).ready(function () {
-			$("#btnreload").click(function () {
-				var htmlobj = crossDomainRequest();
-				var JsonObjs = eval("(" + htmlobj.responseText + ")")[3];
-				$("#yellow_title").html(JsonObjs.title);
-				$("#yellow_program").html(JsonObjs.program);
-				$("#jquery_jplayer_1").jPlayer(
-					"setMedia", {
-						title: JsonObjs.title,
-						m4v: JsonObjs.video,
-						poster: JsonObjs.img
-					});
-			});
 
-
-			var htmlobj = crossDomainRequest();
+			var txtkey = localStorage.getItem("keyword");
+			alert(txtkey);
+			
+			var htmlobj = crossDomainRequest(txtkey);
+			var JsonObjs, playerlist = [];
 			if (htmlobj.status != 0) {
-				var JsonObjs = eval("(" + htmlobj.responseText + ")")[0];
+				JsonObjs = eval("(" + htmlobj.responseText.list + ")");
+				for (var i = 0; i < JsonObjs.length; i++) {
+					playerlist.push({
+						title: JsonObjs[i].title,
+						mp4: JsonObjs[i].video,
+						poster: JsonObjs[i].img
+					})
+				}
 				$("#yellow_title").html(JsonObjs.title);
 				$("#yellow_program").html(JsonObjs.program);
 				$("#jquery_jplayer_1").jPlayer({
 					ready: function () {
 						$(this).jPlayer("setMedia", {
-							title: JsonObjs.title,
-							m4v: JsonObjs.video,
-							poster: JsonObjs.img
+							title: JsonObjs[0].title,
+							m4v: JsonObjs[0].video,
+							poster: JsonObjs[0].img
 						});
 					},
 					swfPath: "../../dist/jplayer",
@@ -81,131 +75,165 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				alert("非法访问");
 				window.location.href = '../index.html'
 			}
+			new jPlayerPlaylist({
+				jPlayer: "#jquery_jplayer_1",
+				cssSelectorAncestor: "#jp_container_1"
+			}, playerlist, {
+					swfPath: "../../dist/jplayer",
+					supplied: "webmv,ogv,mp4",
+					useStateClassSkin: true,
+					autoBlur: false,
+					smoothPlayBar: true,
+					keyEnabled: true
+				});
+
 		});
+
+
 
 //]]>
 	</script>
-	<!--//video-->
 </head>
 
 <body>
-	<!---->
-	<h2>Clystatic</h2>
-	<div class="vertion-buttons">
-		<input type="submit" id="btnreload" value="换一个">
+	<h1>Just Play Widget</h1>
 
-	</div>
-	<div class="movie-review">
-		<div class="movie-review-main">
-			<div class="review-left">
-				<div class="video">
-					<div class="content-middle-top2">
-						<div class=" video-grid">
-							<div id="jp_container_1" class="jp-video jp-video-360p" role="application" aria-label="media player">
-								<div class="jp-type-single">
-									<div id="jquery_jplayer_1" class="jp-jplayer"></div>
-									<div class="jp-gui">
-										<div class="jp-video-play">
-											<button class="jp-video-play-icon" role="button" tabindex="0">play</button>
-										</div>
-										<div class="jp-interface">
-											<div class="jp-progress">
-												<div class="jp-seek-bar">
-													<div class="jp-play-bar"></div>
-												</div>
-											</div>
-											<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-											<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-											<div class="jp-controls-holder">
-												<div class="jp-controls">
-													<button class="jp-play" role="button" tabindex="1">play</button>
-													<button class="jp-stop" role="button" tabindex="2">stop</button>
-												</div>
-												<div class="jp-volume-controls">
-													<button class="jp-mute" role="button" tabindex="3">mute</button>
-													<button class="jp-volume-max" role="button" tabindex="4">max volume</button>
-													<div class="jp-volume-bar">
-														<div class="jp-volume-bar-value"></div>
-													</div>
-												</div>
-												<div class="jp-toggles">
-													<button class="jp-repeat" role="button" tabindex="0">repeat</button>
-													<button class="jp-full-screen" role="button" tabindex="5">full screen</button>
-												</div>
-											</div>
-
+	<div class="music box">
+		<!--/music-right-->
+		<div class="music-right">
+			<!--/video-main-->
+			<div class="video-main">
+				<div class="video-record-list">
+					<div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player">
+						<div class="jp-type-playlist">
+							<div id="jquery_jplayer_1" class="jp-jplayer" style="width: 480px; height: 270px;">
+								<img id="jp_poster_0" src="video/play1.png" style="width: 480px; height: 270px; display: inline;">
+								<video id="jp_video_0" preload="metadata" src="http://192.168.30.9/vijayaa/2015/Dec/mosaic/web/video/Ellie-Goulding.webm"
+								 title="1. Ellie-Goulding" style="width: 0px; height: 0px;"></video>
+							</div>
+							<div class="jp-gui">
+								<div class="jp-video-play" style="display: block;">
+									<button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+								</div>
+								<div class="jp-interface">
+									<div class="jp-progress">
+										<div class="jp-seek-bar" style="width: 100%;">
+											<div class="jp-play-bar" style="width: 0%;"></div>
 										</div>
 									</div>
-									<div class="jp-no-solution">
-										<span>Update Required</span>
-										To play the media you will need to either update your browser to a recent version or update your
-										<!-- <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. -->
+									<div class="jp-current-time" role="timer" aria-label="time">00:00</div>
+									<div class="jp-duration" role="timer" aria-label="duration">00:18</div>
+									<div class="jp-controls-holder">
+										<div class="jp-controls">
+											<button class="jp-previous" role="button" tabindex="0">previous</button>
+											<button class="jp-play" role="button" tabindex="0">play</button>
+										</div>
+										<div class="jp-volume-controls">
+											<button class="jp-mute" role="button" tabindex="0">mute</button>
+											<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+											<div class="jp-volume-bar">
+												<div class="jp-volume-bar-value" style="width: 100%;"></div>
+											</div>
+										</div>
+										<div class="jp-toggles">
+
+											<button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+										</div>
+									</div>
+									<div class="jp-details" style="display: none;">
+										<div class="jp-title" aria-label="title">1. Ellie-Goulding</div>
 									</div>
 								</div>
+							</div>
+							<div class="jp-playlist">
+								<ul style="display: block;">
+									<li class="jp-playlist-current">
+										<div>
+											<a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a>
+											<a href="javascript:;" class="jp-playlist-item jp-playlist-current" tabindex="0">1. Ellie-Goulding
+												<span class="jp-artist">by Pixar</span>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a>
+											<a href="javascript:;" class="jp-playlist-item" tabindex="0">2. Mark-Ronson-Uptown
+												<span class="jp-artist">by Pixar</span>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a>
+											<a href="javascript:;" class="jp-playlist-item" tabindex="0">3. Ellie-Goulding
+												<span class="jp-artist">by Pixar</span>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a>
+											<a href="javascript:;" class="jp-playlist-item" tabindex="0">4. Maroon-Sugar
+												<span class="jp-artist">by Pixar</span>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a>
+											<a href="javascript:;" class="jp-playlist-item" tabindex="0">5. Pharrell-Williams
+												<span class="jp-artist">by Pixar</span>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a>
+											<a href="javascript:;" class="jp-playlist-item" tabindex="0">6. Ellie-Goulding
+												<span class="jp-artist">by Pixar</span>
+											</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a>
+											<a href="javascript:;" class="jp-playlist-item" tabindex="0">7. Pharrell-Williams
+												<span class="jp-artist">by Pixar</span>
+											</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="jp-no-solution" style="display: none;">
+								<span>Update Required</span>
+								To play the media you will need to either update your browser to a recent version or update your
+								<a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- script for play-list -->
+			<link href="css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css">
+			<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+			<script type="text/javascript" src="js/jplayer.playlist.min.js"></script>
 
-			<div class="review-right">
-				<div class="review-right-main">
-					<h1 id="yellow_title">The Croods</h1>
-					<p id="yellow_program">kirk De Micco</p>
-					<!---->
-					<fieldset>
-						<section>
-							<div class="rating">
-								<input type="radio" name="stars-rating" id="stars-rating-5">
-								<label for="stars-rating-5">
-									<i class="icon-star"></i>
-								</label>
-								<input type="radio" name="stars-rating" id="stars-rating-4">
-								<label for="stars-rating-4">
-									<i class="icon-star"></i>
-								</label>
-								<input type="radio" name="stars-rating" id="stars-rating-3">
-								<label for="stars-rating-3">
-									<i class="icon-star"></i>
-								</label>
-								<input type="radio" name="stars-rating" id="stars-rating-2">
-								<label for="stars-rating-2">
-									<i class="icon-star"></i>
-								</label>
-								<input type="radio" name="stars-rating" id="stars-rating-1">
-								<label for="stars-rating-1">
-									<i class="icon-star"></i>
-								</label>
-							</div>
-						</section>
-					</fieldset>
-					<div class="vertion-buttons">
-						<a href="#">animation</a>
-						<a href="#">adventure</a>
-						<a href="#">Comedy</a>
-					</div>
-				</div>
-				<div class="color-boxs">
-					<div class="app-box violet">
-						<img src="images/picks.png" alt="">
-					</div>
-					<div class="app-box red">
-						<img src="images/add.png" alt="">
-					</div>
-					<div class="app-box green">
-						<img src="images/share.png" alt="">
-					</div>
-					<div class="clear"> </div>
-				</div>
-			</div>
-			<div class="clear"> </div>
+			<!-- //script for play-list -->
+
+			<!--//video-main-->
+
 		</div>
 	</div>
-	<div class="copy-right">
-		<p>© 2015 Movie review Widget. All rights reserved | Template by CLY</p>
+	<!--- footer --->
+	<div class="footer">
+		<p> &copy; 2016 Just Play Widget. All rights reserved | Design by
+			<a href="http://w3layouts.com/">W3layouts</a>
+		</p>
 	</div>
+	<!--- footer --->
 
-	<!---->
+
 </body>
 
 </html>

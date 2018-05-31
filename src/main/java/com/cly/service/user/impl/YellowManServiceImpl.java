@@ -5,6 +5,7 @@ import com.cly.model.YellowMan;
 import com.cly.service.user.YellowManService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import  com.github.pagehelper.PageHelper;
 
 /**
  * @author ：Chen lingyun
@@ -18,6 +19,7 @@ public class YellowManServiceImpl implements YellowManService {
 
     @Override
     public YellowMan Login(String name, String password) {
+
         return yellowManMapper.selectByName(name,password);
     }
 }
