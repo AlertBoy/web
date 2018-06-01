@@ -31,61 +31,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		}
 		$(document).ready(function () {
-
 			var txtkey = localStorage.getItem("keyword");
-			alert(txtkey);
-			
 			var htmlobj = crossDomainRequest(txtkey);
 			var JsonObjs, playerlist = [];
 			if (htmlobj.status != 0) {
-				JsonObjs = eval("(" + htmlobj.responseText.list + ")");
+				JsonObjs = htmlobj.responseJSON.list;
 				for (var i = 0; i < JsonObjs.length; i++) {
 					playerlist.push({
 						title: JsonObjs[i].title,
-						mp4: JsonObjs[i].video,
+						webmv: JsonObjs[i].video,
 						poster: JsonObjs[i].img
 					})
 				}
-				$("#yellow_title").html(JsonObjs.title);
-				$("#yellow_program").html(JsonObjs.program);
-				$("#jquery_jplayer_1").jPlayer({
-					ready: function () {
-						$(this).jPlayer("setMedia", {
-							title: JsonObjs[0].title,
-							m4v: JsonObjs[0].video,
-							poster: JsonObjs[0].img
-						});
-					},
-					swfPath: "../../dist/jplayer",
-					supplied: "m4v",
-					size: {
-						width: "100%",
-						height: "275px",
-						cssClass: "jp-video-360p"
-					},
-					useStateClassSkin: true,
-					autoBlur: false,
-					smoothPlayBar: true,
-					keyEnabled: true,
-					remainingDuration: true,
-					toggleDuration: true
-				});
+				new jPlayerPlaylist({
+						jPlayer: "#jquery_jplayer_1",
+						cssSelectorAncestor: "#jp_container_1"
+					},playerlist , {
+						swfPath: "../../dist/jplayer",
+						supplied: "webmv,ogv,mp4",
+						useStateClassSkin: true,
+						autoBlur: false,
+						smoothPlayBar: true,
+						keyEnabled: true
+					});
 			}
 			else {
 				alert("非法访问");
 				window.location.href = '../index.html'
 			}
-			new jPlayerPlaylist({
-				jPlayer: "#jquery_jplayer_1",
-				cssSelectorAncestor: "#jp_container_1"
-			}, playerlist, {
-					swfPath: "../../dist/jplayer",
-					supplied: "webmv,ogv,mp4",
-					useStateClassSkin: true,
-					autoBlur: false,
-					smoothPlayBar: true,
-					keyEnabled: true
-				});
+		
 
 		});
 

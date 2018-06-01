@@ -35,12 +35,12 @@ public class YellowController {
 
     @ResponseBody
     @RequestMapping("/searchBy")
-    public Object searchBy(@RequestParam String title, @RequestParam(required = false) String program) {
+    public Object searchBy(@RequestParam String title, @RequestParam(required = false) String program,@RequestParam(required = false) Integer pageNum) {
         PageInfo<Yellow> yellow;
-        if (program == null) {
+        if (pageNum == null) {
             yellow = yellowService.selectByName(title, program,1,5);
         } else {
-            yellow = yellowService.selectByName(title, program,2,5);
+            yellow = yellowService.selectByName(title, program,pageNum,5);
         }
         return yellow;
     }
