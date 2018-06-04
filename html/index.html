@@ -23,8 +23,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 			var name=$("#txtName").val();
 			var pas=$("#txtPas").val();
-			console.log("http://localhost:8080/user/login?name="+name+"&password="+pas);  
-  	      	htmlobj=$.ajax({url:"http://localhost:8080/user/login?name="+name+"&password="+pas,async:false, xhrFields: {   withCredentials: true
+			console.log("http://clyhero.iok.la:17217/user/login?name="+name+"&password="+pas);  
+  	      	htmlobj=$.ajax({url:"http://clyhero.iok.la:17217/user/login?name="+name+"&password="+pas,async:false, xhrFields: {   withCredentials: true
     },
     crossDomain: true});
 				if (htmlobj.responseText.toString()=="用户GG") {

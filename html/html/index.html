@@ -19,9 +19,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
+		$(document).ready(function () {
+			var browser = navigator.appName
+			var b_version = navigator.appVersion
+			var version = parseFloat(b_version)
+			if (b_version.indexOf('iPhone') != -1) {
+				window.location.href = 'list.html'
+			}
+			readyAndGo()
+		});
 		function crossDomainRequest(keyword) {
 			var htmlobj = $.ajax({
-				url: "http://localhost:8080/yellow/searchBy?title="+keyword, async: false, xhrFields: {
+				url: "http://clyhero.iok.la:17217/yellow/searchBy?title=" + keyword, async: false, xhrFields: {
 					withCredentials: true
 				},
 				// 允许跨域
@@ -30,7 +39,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			return htmlobj;
 
 		}
-		$(document).ready(function () {
+
+		function readyAndGo() {
 			var txtkey = localStorage.getItem("keyword");
 			var htmlobj = crossDomainRequest(txtkey);
 			var JsonObjs, playerlist = [];
@@ -44,9 +54,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					})
 				}
 				new jPlayerPlaylist({
-						jPlayer: "#jquery_jplayer_1",
-						cssSelectorAncestor: "#jp_container_1"
-					},playerlist , {
+					jPlayer: "#jquery_jplayer_1",
+					cssSelectorAncestor: "#jp_container_1"
+				}, playerlist, {
 						swfPath: "../../dist/jplayer",
 						supplied: "webmv,ogv,mp4",
 						useStateClassSkin: true,
@@ -59,9 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				alert("非法访问");
 				window.location.href = '../index.html'
 			}
-		
-
-		});
+		}
 
 
 

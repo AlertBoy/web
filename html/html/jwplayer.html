@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://www.17sucai.com/preview/1/2015-06-21/jwplayer/index.html -->
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>jwplayer</title>
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<meta name="format-detection" content="telephone=no">
+	<script src="./jwplayer_files/jwpsrv.js"></script>
+	<script src="./jwplayer_files/jwplayer.html5.js"></script>
+	<style type="text/css"></style>
+	<link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/content.css">
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="./jwplayer_files/jwplayer.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#mediaplayer_media").src = localStorage.getItem("url");
+			 jwplayer('mediaplayer').setup({
+				'flashplayer': 'jwplayer/jwplayer.flash.swf',
+				'image': 'http://bcs.duapp.com/images-link/3.jpg',
+				'id': 'playerID',
+				'width': '100%',
+				'aspectratio': '10:6',
+				'file': localStorage.getItem("url")
+			});
+			
+		})
+	</script>
+</head>
+
+<body>
+	<div class="jwplayer aspectMode playlist-none " id="mediaplayer" tabindex="0" style="width: 100%; background-color: rgb(0, 0, 0); display: inline-block; opacity: 1;">
+		<div class="jwclick" id="mediaplayer_menu" style="display: none; left: 1375px; top: 971px;">
+			<div class="jwclick_item">About JW Player 6.10.4906...</div>
+		</div>
+		<span class="jwmain" id="mediaplayer_view">
+			<span class="jwvideo" id="mediaplayer_media" style="opacity: 0;">
+				<video x-webkit-airplay="allow" id="mediaplayer_media" src="http://bcs.duapp.com/images-link/sample.mp4"></video>
+			</span>
+			<span class="jwcontrols">
+				<div id="mediaplayer_caption" class="jwcaptions">
+					<div style="display: none; height: auto; position: absolute; bottom: 20px; text-align: center; width: 100%;">
+						<div style="display: inline-block;">
+							<span style="color: rgb(255, 255, 255); display: inline-block; font-family: Arial, sans-serif; font-style: normal; font-weight: normal; text-align: center; text-decoration: none; word-wrap: break-word; background-color: rgb(0, 0, 0);"></span>
+						</div>
+					</div>
+				</div>
+				<div id="mediaplayer_display" class="jwdisplay" style="display: block;">
+					<div class="jwpreview jwuniform"></div>
+					<div class="jwdisplayIcon" id="mediaplayer_display_button" style="opacity: 1; display: table; background-size: 18px 100%, 36px 100%, 18px 100%; cursor: pointer;">
+						<div class="jwtext" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 11px; line-height: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(255, 255, 255); display: none;"></div>
+						<div class="jwicon" id="mediaplayer_display_button_play" style="width: 36px; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAA0CAQAAABI31KIAAABHUlEQVR4Ae2Vu0oDQRRAB2xSWVmmtQncLzFREUUsnW/wJ0SCWgQV8TUQBBEsjlgIFoJFCsFCCT5QgwZFtPGtncUWIcTZnd2pAnNOf2Bn5t5VgUCge8mpPtWrevxD+cbi1KTq948VXvjlbMM/Jk2aPPPjHZM7Ip88Y3JLy0e+M8fkmnYfMsbkkk7v+Uodkzr/2+AzVUxOsXvDh3NMToj3inenmByT7AVviTGp4WadV85XK0WVs4SOcHd3rVyyhg5xc91M6NhPOyDZFTOuEw97n3iXzZh2uv497C6YUe38ILFQMSM61Yjs0Om8Gdaph3abdmfNkM60RrZoWTaDOvNi2yRyxpQsETcKVapMm6JHJCI/tzTgEfH4QXYxgUDgD+1pwmmFlV3oAAAAAElFTkSuQmCC&quot;); background-size: 36px 52px; float: none;"></div>
+					</div>
+				</div>
+				<img class="jwlogo" id="mediaplayer_logo" style="visibility: visible; opacity: 1;">
+				<div class="jwdock" id="mediaplayer_dock">
+					<div class="jwdockbuttons">
+						<div class="capLeft"></div>
+						<div class="capRight"></div>
+					</div>
+				</div>
+				<span id="mediaplayer_controlbar" class="jwcontrolbar" style="height: 30px; bottom: 10px; left: 10px; right: 10px; max-width: 800px; display: inline-block; opacity: 1;">
+					<span class="jwbackground">&nbsp;</span>
+					<span class="jwcapLeft">&nbsp;</span>
+					<span class="jwgroup jwleft">
+						<span class="jwplay">
+							<span>
+								<button tabindex="-1">&nbsp;</button>
+							</span>
+							<span class="jwblankDivider"></span>
+						</span>
+						<span class="jwprev jwbuttoncontainer" style="display: none;">
+							<span>
+								<button tabindex="-1">&nbsp;</button>
+							</span>
+							<span class="jwblankDivider"></span>
+						</span>
+						<span class="jwnext jwbuttoncontainer" style="display: none;">
+							<span>
+								<button tabindex="-1">&nbsp;</button>
+							</span>
+							<span class="jwblankDivider"></span>
+						</span>
+						<span id="mediaplayer_controlbar_elapsed" class="jwtext jwelapsed jwhidden" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAeCAYAAAAPSW++AAAAD0lEQVQoU2NgGAWjYKQAAALuAAGL6/H9AAAAAElFTkSuQmCC&quot;) center center / 1px 30px repeat-x;">00:00</span>
+					</span>
+					<span class="jwgroup jwcenter" style="left: 73px; right: 97px;">
+						<span class="jwslider jwtime" style="display: block;">
+							<span class="jwtimeSliderCapLeft">&nbsp;</span>
+							<span class="jwrail">
+								<span class="jwrailgroup Rail">
+									<span class="jwtimeSliderRailCapLeft">&nbsp;</span>
+									<span class="jwtimeSliderRail">&nbsp;</span>
+									<span class="jwtimeSliderRailCapRight jwcapRight">&nbsp;</span>
+								</span>
+								<span class="jwrailgroup Buffer" style="width: 0%; opacity: 0;">
+									<span class="jwtimeSliderBufferCapLeft">&nbsp;</span>
+									<span class="jwtimeSliderBuffer">&nbsp;</span>
+									<span class="jwtimeSliderBufferCapRight jwcapRight">&nbsp;</span>
+								</span>
+								<span class="jwprogressOverflow" style="width: 0%; opacity: 0;">
+									<span class="jwrailgroup Progress">
+										<span class="jwtimeSliderProgressCapLeft">&nbsp;</span>
+										<span class="jwtimeSliderProgress">&nbsp;</span>
+										<span class="jwtimeSliderProgressCapRight jwcapRight">&nbsp;</span>
+									</span>
+								</span>
+								<span class="jwtimeSliderThumb jwthumb" style="margin-left: -8px; left: 0%; opacity: 1;">&nbsp;</span>
+								<div class="jwoverlay" id="mediaplayer_controlbar_timetooltip" style="padding: 5px 7px 8px; left: 119px;">
+									<div class="jwarrow" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAADCAYAAACnI+4yAAAAEklEQVR42mP4//8/AymYgeYaABssa5WUTzsyAAAAAElFTkSuQmCC&quot;) center center / 12px 3px; position: absolute; bottom: 0px; width: 12px; height: 3px; left: 50%;"></div>
+									<div class="jwborder jwtopleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAPklEQVR4XmMQFRVnBeIiIN4FxCeQMQOQU6ijq3/VycXjiau79zNkDJLcZWvv9MTGzumZta0jCgZJnkAXhPEBnhkmTDF7/FAAAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; top: 0px; left: 0px;"></div>
+									<div class="jwborder jwbottomleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAMUlEQVR4AWMQFRU/YW3r+AwbBknusrSye4JLslBdQ/uqpbX9E2ySrEBcBMS7QVYgYwAWViWcql/T2AAAAABJRU5ErkJggg==&quot;) center center / 7px 4px; width: 7px; height: 4px; bottom: 3px; left: 0px;"></div>
+									<div class="jwborder jwtopright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAPklEQVR42mMQFRU/gYZ3A3ERELMyuLp7P0PGTi4eT3R09a8CJbMYrG0dnyFjGzunZ7b2Tk+AkrswJGEYZAUA8XwmRnLnEVMAAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; top: 0px; right: 0px;"></div>
+									<div class="jwborder jwbottomright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAANUlEQVR42mOwtnV8hg2LioqfYMAmYWll9wQouQtD0tLa/om6hvZVoGQ2A0g7Gt4NxEVAzAoAZzolltlSH50AAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; bottom: 3px; right: 0px;"></div>
+									<div class="jwborder jwleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAFklEQVR42mMQFRU/YW3r+AwbZsAnCQBUPRWHq8l/fAAAAABJRU5ErkJggg==&quot;) center center / 7px 2px; width: 7px; left: 0px;"></div>
+									<div class="jwborder jwright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAFklEQVR42mOwtnV8hg2LioqfYMAnCQBwXRWHw2Rr1wAAAABJRU5ErkJggg==&quot;) center center / 7px 2px; width: 7px; right: 0px;"></div>
+									<div class="jwborder jwtop" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAECAYAAAC6Jt6KAAAAHUlEQVR42mMUFRU/wUACYHR1935GkgZrW0faagAAqHQGCWgiU9QAAAAASUVORK5CYII=&quot;) center center / 12px 4px; height: 4px; top: 0px;"></div>
+									<div class="jwborder jwbottom" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAECAYAAAC6Jt6KAAAAGElEQVR42mOwtnV8RgpmoL0GUVHxE6RgAO7IRsl4Cw8cAAAAAElFTkSuQmCC&quot;) center center / 12px 4px; height: 4px; bottom: 3px;"></div>
+									<div class="jwback" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAACCAYAAABsfz2XAAAAEUlEQVR4AWOwtnV8RgomWQMAWvcm6W7AcF8AAAAASUVORK5CYII=&quot;) center center / 12px 2px; left: 7px; right: 7px; top: 4px; bottom: 7px;"></div>
+									<div class="jwcontents">
+										<div>
+											<div id="mediaplayer_controlbar_thumb" style="display: none;"></div>
+											<div class="jwoverlaytext">00:00</div>
+										</div>
+									</div>
+								</div>
+							</span>
+							<span class="jwtimeSliderCapRight">&nbsp;</span>
+						</span>
+						<span id="mediaplayer_controlbar_alt" class="jwtext jwalt" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAeCAYAAAAPSW++AAAAD0lEQVQoU2NgGAWjYKQAAALuAAGL6/H9AAAAAElFTkSuQmCC&quot;) center center / 1px 30px repeat-x; display: none;"></span>
+					</span>
+					<span class="jwgroup jwright" style="right: 8px;">
+						<span id="mediaplayer_controlbar_duration" class="jwtext jwduration jwhidden" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAeCAYAAAAPSW++AAAAD0lEQVQoU2NgGAWjYKQAAALuAAGL6/H9AAAAAElFTkSuQmCC&quot;) center center / 1px 30px repeat-x;">00:00</span>
+						<span class="jwhd jwbuttoncontainer" style="display: none;">
+							<span class="jwblankDivider"></span>
+							<span>
+								<button tabindex="-1">&nbsp;</button>
+							</span>
+							<div class="jwoverlay" id="mediaplayer_controlbar_hd_overlay" style="padding: 5px 7px 8px; left: 50%;">
+								<div class="jwarrow" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAADCAYAAACnI+4yAAAAEklEQVR42mP4//8/AymYgeYaABssa5WUTzsyAAAAAElFTkSuQmCC&quot;) center center / 12px 3px; position: absolute; bottom: 0px; width: 12px; height: 3px; left: 50%;"></div>
+								<div class="jwborder jwtopleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAPklEQVR4XmMQFRVnBeIiIN4FxCeQMQOQU6ijq3/VycXjiau79zNkDJLcZWvv9MTGzumZta0jCgZJnkAXhPEBnhkmTDF7/FAAAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; top: 0px; left: 0px;"></div>
+								<div class="jwborder jwbottomleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAMUlEQVR4AWMQFRU/YW3r+AwbBknusrSye4JLslBdQ/uqpbX9E2ySrEBcBMS7QVYgYwAWViWcql/T2AAAAABJRU5ErkJggg==&quot;) center center / 7px 4px; width: 7px; height: 4px; bottom: 3px; left: 0px;"></div>
+								<div class="jwborder jwtopright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAPklEQVR42mMQFRU/gYZ3A3ERELMyuLp7P0PGTi4eT3R09a8CJbMYrG0dnyFjGzunZ7b2Tk+AkrswJGEYZAUA8XwmRnLnEVMAAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; top: 0px; right: 0px;"></div>
+								<div class="jwborder jwbottomright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAANUlEQVR42mOwtnV8hg2LioqfYMAmYWll9wQouQtD0tLa/om6hvZVoGQ2A0g7Gt4NxEVAzAoAZzolltlSH50AAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; bottom: 3px; right: 0px;"></div>
+								<div class="jwborder jwleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAFklEQVR42mMQFRU/YW3r+AwbZsAnCQBUPRWHq8l/fAAAAABJRU5ErkJggg==&quot;) center center / 7px 2px; width: 7px; left: 0px;"></div>
+								<div class="jwborder jwright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAFklEQVR42mOwtnV8hg2LioqfYMAnCQBwXRWHw2Rr1wAAAABJRU5ErkJggg==&quot;) center center / 7px 2px; width: 7px; right: 0px;"></div>
+								<div class="jwborder jwtop" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAECAYAAAC6Jt6KAAAAHUlEQVR42mMUFRU/wUACYHR1935GkgZrW0faagAAqHQGCWgiU9QAAAAASUVORK5CYII=&quot;) center center / 12px 4px; height: 4px; top: 0px;"></div>
+								<div class="jwborder jwbottom" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAECAYAAAC6Jt6KAAAAGElEQVR42mOwtnV8RgpmoL0GUVHxE6RgAO7IRsl4Cw8cAAAAAElFTkSuQmCC&quot;) center center / 12px 4px; height: 4px; bottom: 3px;"></div>
+								<div class="jwback" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAACCAYAAABsfz2XAAAAEUlEQVR4AWOwtnV8RgomWQMAWvcm6W7AcF8AAAAASUVORK5CYII=&quot;) center center / 12px 2px; left: 7px; right: 7px; top: 4px; bottom: 7px;"></div>
+								<div class="jwcontents">
+									<div class="jwmenu" id="mediaplayer_controlbar_hd"></div>
+								</div>
+							</div>
+						</span>
+						<span class="jwcc jwbuttoncontainer" style="display: none;">
+							<span class="jwblankDivider"></span>
+							<span>
+								<button tabindex="-1">&nbsp;</button>
+							</span>
+							<div class="jwoverlay" id="mediaplayer_controlbar_cc_overlay" style="padding: 5px 7px 8px; left: 50%;">
+								<div class="jwarrow" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAADCAYAAACnI+4yAAAAEklEQVR42mP4//8/AymYgeYaABssa5WUTzsyAAAAAElFTkSuQmCC&quot;) center center / 12px 3px; position: absolute; bottom: 0px; width: 12px; height: 3px; left: 50%;"></div>
+								<div class="jwborder jwtopleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAPklEQVR4XmMQFRVnBeIiIN4FxCeQMQOQU6ijq3/VycXjiau79zNkDJLcZWvv9MTGzumZta0jCgZJnkAXhPEBnhkmTDF7/FAAAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; top: 0px; left: 0px;"></div>
+								<div class="jwborder jwbottomleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAMUlEQVR4AWMQFRU/YW3r+AwbBknusrSye4JLslBdQ/uqpbX9E2ySrEBcBMS7QVYgYwAWViWcql/T2AAAAABJRU5ErkJggg==&quot;) center center / 7px 4px; width: 7px; height: 4px; bottom: 3px; left: 0px;"></div>
+								<div class="jwborder jwtopright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAPklEQVR42mMQFRU/gYZ3A3ERELMyuLp7P0PGTi4eT3R09a8CJbMYrG0dnyFjGzunZ7b2Tk+AkrswJGEYZAUA8XwmRnLnEVMAAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; top: 0px; right: 0px;"></div>
+								<div class="jwborder jwbottomright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAANUlEQVR42mOwtnV8hg2LioqfYMAmYWll9wQouQtD0tLa/om6hvZVoGQ2A0g7Gt4NxEVAzAoAZzolltlSH50AAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; bottom: 3px; right: 0px;"></div>
+								<div class="jwborder jwleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAFklEQVR42mMQFRU/YW3r+AwbZsAnCQBUPRWHq8l/fAAAAABJRU5ErkJggg==&quot;) center center / 7px 2px; width: 7px; left: 0px;"></div>
+								<div class="jwborder jwright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAFklEQVR42mOwtnV8hg2LioqfYMAnCQBwXRWHw2Rr1wAAAABJRU5ErkJggg==&quot;) center center / 7px 2px; width: 7px; right: 0px;"></div>
+								<div class="jwborder jwtop" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAECAYAAAC6Jt6KAAAAHUlEQVR42mMUFRU/wUACYHR1935GkgZrW0faagAAqHQGCWgiU9QAAAAASUVORK5CYII=&quot;) center center / 12px 4px; height: 4px; top: 0px;"></div>
+								<div class="jwborder jwbottom" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAECAYAAAC6Jt6KAAAAGElEQVR42mOwtnV8RgpmoL0GUVHxE6RgAO7IRsl4Cw8cAAAAAElFTkSuQmCC&quot;) center center / 12px 4px; height: 4px; bottom: 3px;"></div>
+								<div class="jwback" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAACCAYAAABsfz2XAAAAEUlEQVR4AWOwtnV8RgomWQMAWvcm6W7AcF8AAAAASUVORK5CYII=&quot;) center center / 12px 2px; left: 7px; right: 7px; top: 4px; bottom: 7px;"></div>
+								<div class="jwcontents">
+									<div class="jwmenu" id="mediaplayer_controlbar_cc"></div>
+								</div>
+							</div>
+						</span>
+						<span class="jwmute">
+							<span class="jwblankDivider"></span>
+							<span>
+								<button tabindex="-1">&nbsp;</button>
+							</span>
+							<div class="jwoverlay" id="mediaplayer_controlbar_volumeoverlay" style="padding: 5px 7px 8px; left: 50%; display: block;">
+								<div class="jwarrow" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAADCAYAAACnI+4yAAAAEklEQVR42mP4//8/AymYgeYaABssa5WUTzsyAAAAAElFTkSuQmCC&quot;) center center / 12px 3px; position: absolute; bottom: 0px; width: 12px; height: 3px; left: 50%;"></div>
+								<div class="jwborder jwtopleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAPklEQVR4XmMQFRVnBeIiIN4FxCeQMQOQU6ijq3/VycXjiau79zNkDJLcZWvv9MTGzumZta0jCgZJnkAXhPEBnhkmTDF7/FAAAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; top: 0px; left: 0px;"></div>
+								<div class="jwborder jwbottomleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAMUlEQVR4AWMQFRU/YW3r+AwbBknusrSye4JLslBdQ/uqpbX9E2ySrEBcBMS7QVYgYwAWViWcql/T2AAAAABJRU5ErkJggg==&quot;) center center / 7px 4px; width: 7px; height: 4px; bottom: 3px; left: 0px;"></div>
+								<div class="jwborder jwtopright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAPklEQVR42mMQFRU/gYZ3A3ERELMyuLp7P0PGTi4eT3R09a8CJbMYrG0dnyFjGzunZ7b2Tk+AkrswJGEYZAUA8XwmRnLnEVMAAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; top: 0px; right: 0px;"></div>
+								<div class="jwborder jwbottomright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAANUlEQVR42mOwtnV8hg2LioqfYMAmYWll9wQouQtD0tLa/om6hvZVoGQ2A0g7Gt4NxEVAzAoAZzolltlSH50AAAAASUVORK5CYII=&quot;) center center / 7px 4px; width: 7px; height: 4px; bottom: 3px; right: 0px;"></div>
+								<div class="jwborder jwleft" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAFklEQVR42mMQFRU/YW3r+AwbZsAnCQBUPRWHq8l/fAAAAABJRU5ErkJggg==&quot;) center center / 7px 2px; width: 7px; left: 0px;"></div>
+								<div class="jwborder jwright" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAFklEQVR42mOwtnV8hg2LioqfYMAnCQBwXRWHw2Rr1wAAAABJRU5ErkJggg==&quot;) center center / 7px 2px; width: 7px; right: 0px;"></div>
+								<div class="jwborder jwtop" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAECAYAAAC6Jt6KAAAAHUlEQVR42mMUFRU/wUACYHR1935GkgZrW0faagAAqHQGCWgiU9QAAAAASUVORK5CYII=&quot;) center center / 12px 4px; height: 4px; top: 0px;"></div>
+								<div class="jwborder jwbottom" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAECAYAAAC6Jt6KAAAAGElEQVR42mOwtnV8RgpmoL0GUVHxE6RgAO7IRsl4Cw8cAAAAAElFTkSuQmCC&quot;) center center / 12px 4px; height: 4px; bottom: 3px;"></div>
+								<div class="jwback" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAACCAYAAABsfz2XAAAAEUlEQVR4AWOwtnV8RgomWQMAWvcm6W7AcF8AAAAASUVORK5CYII=&quot;) center center / 12px 2px; left: 7px; right: 7px; top: 4px; bottom: 7px;"></div>
+								<div class="jwcontents">
+									<span class="jwslider jwvolume jwvertical">
+										<span class="jwvolumeCapTop">&nbsp;</span>
+										<span class="jwrail">
+											<span class="jwrailgroup Rail">
+												<span class="jwvolumeRailCapTop">&nbsp;</span>
+												<span class="jwvolumeRail">&nbsp;</span>
+												<span class="jwvolumeRailCapBottom jwcapBottom">&nbsp;</span>
+											</span>
+											<span class="jwrailgroup Progress" style="height: 90%; bottom: 0px;">
+												<span class="jwvolumeProgressCapTop">&nbsp;</span>
+												<span class="jwvolumeProgress">&nbsp;</span>
+												<span class="jwvolumeProgressCapBottom jwcapBottom">&nbsp;</span>
+												<span class="jwvolumeThumb jwthumb" style="top: 0px;">&nbsp;</span>
+											</span>
+										</span>
+										<span class="jwvolumeCapBottom jwcapBottom">&nbsp;</span>
+									</span>
+								</div>
+							</div>
+						</span>
+						<span class="jwslider jwvolumeH jwhorizontal" style="display: none;">
+							<span class="jwvolumeHCapLeft">&nbsp;</span>
+							<span class="jwrail">
+								<span class="jwrailgroup Rail">
+									<span class="jwvolumeHRailCapLeft">&nbsp;</span>
+									<span class="jwvolumeHRail">&nbsp;</span>
+									<span class="jwvolumeHRailCapRight jwcapRight">&nbsp;</span>
+								</span>
+								<span class="jwprogressOverflow" style="width: 90%; opacity: 1;">
+									<span class="jwrailgroup Progress">
+										<span class="jwvolumeHProgressCapLeft">&nbsp;</span>
+										<span class="jwvolumeHProgress">&nbsp;</span>
+										<span class="jwvolumeHProgressCapRight jwcapRight">&nbsp;</span>
+									</span>
+								</span>
+							</span>
+							<span class="jwvolumeHCapRight">&nbsp;</span>
+						</span>
+						<span class="jwcast jwbuttoncontainer" style="display: none;">
+							<span class="jwblankDivider"></span>
+							<span>
+								<button tabindex="-1" class="off">&nbsp;</button>
+							</span>
+						</span>
+						<span class="jwfullscreen jwbuttoncontainer" style="">
+							<span class="jwblankDivider"></span>
+							<span>
+								<button tabindex="-1">&nbsp;</button>
+							</span>
+						</span>
+					</span>
+					<span class="jwcapRight">&nbsp;</span>
+				</span>
+			</span>
+			<span class="jwinstream"></span>
+		</span>
+		<span class="jwaspect"></span>
+		<span class="jwplaylistcontainer"></span>
+	</div>
+
+
+</body>
+
+</html>

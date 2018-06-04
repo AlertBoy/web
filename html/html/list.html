@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://www.17sucai.com/preview/1/2015-06-21/jwplayer/index.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>jwplayer</title>
+    <meta content="" name="Keywords">
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <meta content="" name="Description">
+    <script>
+        function crossDomainRequest(keyword) {
+            var htmlobj = $.ajax({
+                url: "http://clyhero.iok.la:17217/yellow/searchBy?title=" + keyword, async: false, xhrFields: {
+                    withCredentials: true
+                },
+                // 允许跨域
+                crossDomain: true
+            });
+            return htmlobj;
+
+        }
+        $(document).ready(function () {
+            var txtkey = localStorage.getItem("keyword");
+            var htmlobj = crossDomainRequest(txtkey);
+            var JsonObjs, playerlist = [];
+            if (htmlobj.status != 0) {
+                JsonObjs = htmlobj.responseJSON.list;
+                for (var i = 0; i < JsonObjs.length; i++) {
+                    playerlist.push({
+                        title: JsonObjs[i].title,
+                        webmv: JsonObjs[i].video,
+                        poster: JsonObjs[i].img
+                    })
+                }
+                for (var i = 0; i < JsonObjs.length; i++) {
+                    var a = document.createElement('a');
+                    var h1 = document.createElement('h1');
+                    a.href="#"
+                    h1.innerHTML = playerlist[i].title
+                    a.url = playerlist[i].webmv;
+                    a.id=playerlist[i].poster
+                    a.onclick = function () {
+                        localStorage.setItem("url", this.url)
+                        
+                        localStorage.setItem("image", this.id)
+                        window.location.href = 'jwplayer.html'
+                    }
+                    a.append(h1)
+                    $("#maindiv").append(a);
+                }
+                for (var i = 0; i < JsonObjs.length; i++) {
+                    var a = document.createElement('a');
+                    var h1 = document.createElement('h1');
+                    h1.innerHTML = playerlist[i].title
+                    a.href = "#";
+                    a.append(h1)
+                    $("#maindiv").append(a);
+                }
+
+            }
+            else {
+                alert("非法访问");
+                window.location.href = '../index.html'
+            }
+        }
+        );
+    </script>
+
+    <body>
+        <div id="fenye"></div>
+        <div id="maindiv"></div>
+
+    </body>
+
+</html>
